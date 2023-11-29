@@ -11,10 +11,7 @@ function App() {
         <a
           className="App-link"
           href="/auth/google"
-          target="_blank"
-          
-        >
-          Sign In with Google
+          target="_blank">Sign In with Google
         </a>
       </header>
     </div>
