@@ -18,21 +18,19 @@ passport.use(
         clientID: keys.googleClientID,
         clientSecret: keys.googleClientSecret,
         callbackURL: '/auth/google/callback',
-        proxy : true
+        proxy: true
     },
-        (accessToken, refreshToken, profile, done) => {
+        async (accessToken, refreshToken, profile, done) => {
             // console.log('access token', accessToken);
             // console.log("refresh token", refreshToken);
             // console.log('profile', profile);
-            User.findOne({ googleId: profile.id })
-                .then((existUser) => {
-                    if (existUser) {
-                        // Already have a record in mongo database with that profile id
-                        done(null, existUser);
-                    } else {
-                        new User({ googleId: profile.id }).save()
-                            .then(user => done(null, user));
-                    }
-                })
+            const existUser = await User.findOne({ googleId: profile.id })
+            if (existUser) {
+                // Already have a record in mongo database with that profile id
+                return done(null, existUser);
+            } 
+                const user = await new User({ googleId: profile.id }).save()
+                done(null, user);
+            
         })
 );

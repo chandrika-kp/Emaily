@@ -1,21 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Landing from './Components/Landing';
+import Dashboard from './Components/Dashboard';
+import SurveyNew from './Components/SurveyNew';
+import Header from './Components/Header';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hi there
-        </p>
-        <a
-          className="App-link"
-          href="/auth/google"
-          target="_blank">Sign In with Google
-        </a>
-      </header>
+    <div className="container">
+      <BrowserRouter>
+      <Header/>
+        <Routes>
+          <Route exact path='/' Component={Landing} />
+          <Route exact path='/surveys' Component={Dashboard} />
+          <Route exact path='/surveys/new' Component={SurveyNew} />
+        </Routes>
+      </BrowserRouter>
+
     </div>
-  );
+  )
 }
 
 export default App;
