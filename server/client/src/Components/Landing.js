@@ -2,10 +2,11 @@ import React from 'react'
 
 const Landing = () => {
   return (
-    <div>
-      <h2>Landing</h2>
+    <div style={{textAlign:'center'}}>
+      <h2>Emaily!</h2>
+      collect feedback from your users
     </div>
   )
 }
 
-export default Landing
+export default Landing;

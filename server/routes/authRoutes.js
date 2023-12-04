@@ -18,7 +18,7 @@ app.get('/api/logout', (req,res) => {
         }
         res.redirect('/'); // Redirect to the home page or another route after logout
     });
-    res.send(req.user);
+    // res.send(req.user);
 });
 
 app.get('/api/current_user', (req,res) => {res.send(req.user)});

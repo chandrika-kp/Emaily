@@ -18,7 +18,10 @@ export const fetchUser = () => async dispatch => {
 // };
 
 export const logout = () => {
-    // You may want to make a request to your server to handle the logout
-    // For simplicity, directly dispatch LOGOUT action
     return { type: LOGOUT };
 };
+
+export const handleToken = (token) => async dispatch => {
+    const res = axios.post('/api/stripe', token);
+    dispatch({type: FETCH_USER, payload: res.data});
+}
