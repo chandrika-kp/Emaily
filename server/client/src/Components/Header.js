@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../redux/actions';
+// import * as actions from '../redux/actions';
 import { NavLink } from 'react-router-dom';
 import Payments from './Payments';
 
@@ -21,7 +21,8 @@ const Header = ({ auth, fetchUser }) => {
             default:
                 return [
                     <li key="1"><Payments /></li>,
-                    <li ley="2"><a href="/api/logout" >Logout</a></li> // Assuming there is a logout route
+                    <li key='3'style={{margin: '0 10px'}}> Credits: {auth.credits}</li>,
+                    <li key="2"><a href="/api/logout" >Logout</a></li> // Assuming there is a logout route
                 ]
 
         }
