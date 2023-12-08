@@ -4,6 +4,7 @@ const keys = require('./config/keys');
 // const cookieSession = require('cookie-session');
 const expressSession = require('express-session');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const passport = require('passport');
 require('./Models/User');
 require('./services/passport');
@@ -16,7 +17,7 @@ app.use(bodyParser.json());
 //     maxAge: 30 * 24 * 60 * 60 * 1000,
 //     keys: [keys.cookieKey]
 // }));
-
+app.use(cors());
 app.use(
     expressSession({
         secret: keys.cookieKey,

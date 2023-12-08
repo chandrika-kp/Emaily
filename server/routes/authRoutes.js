@@ -12,18 +12,16 @@ passport.authenticate('google'),
 );
 
 app.get('/api/logout', (req,res) => { 
-    req.logout((err) => {
-        if (err) {
-            return res.status(500).send('Error logging out');
-        }
-        res.redirect('/'); // Redirect to the home page or another route after logout
-    });
-    // res.send(req.user);
+    res.redirect('/'); // Redirect to the home page or another route after logout
+    // req.logout((err) => {
+    //     if (err) {
+    //         return res.status(500).send('Error logging out');
+    //     }
+    // });
+    // // res.send(req.user);
 });
 
 app.get('/api/current_user', (req,res) => {res.send(req.user)});
 
-app.post('/api/stripe', (req,res) => {
-    console.log(res.body);
-})
 };
+

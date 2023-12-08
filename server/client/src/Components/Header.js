@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import Payments from './Payments';
 
 
-const Header = ({ auth, fetchUser }) => {
+const Header = ({ auth}) => {
     console.log('Auth state:', auth);
     // const handleLogout = () => {
     //     // Dispatch the logout action
